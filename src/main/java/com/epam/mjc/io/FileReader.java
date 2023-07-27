@@ -8,17 +8,17 @@ public class FileReader {
 
     public Profile getDataFromFile(File file) {
         Profile profile=null;
+        StringBuilder stringBuilder = new StringBuilder();
         try (java.io.FileReader fileReader = new java.io.FileReader(file);) {
             int symbol;
             String name = null;
             Integer age = null;
             String email = null;
             Long phone = null;
-            String fullText = "";
             while ((symbol = fileReader.read()) != -1) {
-                fullText = fullText + String.valueOf((char) symbol);
+                stringBuilder.append(String.valueOf((char) symbol));
             }
-            String[] splitText = fullText.split("\n");
+            String[] splitText = stringBuilder.toString().split("\n");
             for (int i = 0; i < splitText.length; i++) {
                 if (splitText[i].contains("Name")) {
                     name = splitText[i].replace("Name: ", "");
