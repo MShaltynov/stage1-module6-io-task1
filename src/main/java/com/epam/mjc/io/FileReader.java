@@ -31,7 +31,6 @@ public class FileReader {
                 }
             }
             profile = new Profile(name, age, email, phone);
-            System.out.println(profile);
         } catch (IOException e) {
             e.printStackTrace();
         }
